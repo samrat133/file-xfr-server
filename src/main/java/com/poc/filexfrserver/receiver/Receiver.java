@@ -17,11 +17,6 @@ public class Receiver {
 	private static Logger log = Logger.getLogger(Receiver.class);
 	int counter;
 
-	/**
-	 * Reads the bytes from socket and writes to file
-	 *
-	 * @param socketChannel
-	 */
 	public void readFileFromSocket(SocketChannel socketChannel) {
 
 		String fileName = AppUtil.getFileName();
@@ -36,6 +31,7 @@ public class Receiver {
 				if (counter % 8192 == 0)
 					System.out.print(".");
 			}
+			System.out.println("\n");
 			fileChannel.close();
 			log.info("File transfer completed. Received file : " + fileName);
 			socketChannel.close();
